@@ -1,5 +1,10 @@
+cache
+lint
 node_modules
 vendor
 composer.lock
 package-lock.json
 .DS_Store
+src/Controller/TestController.php
+src/Entity
+index.php

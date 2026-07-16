@@ -1,1 +1,54 @@
-<h1>It works !</h1>
+<html>
+
+<head>
+    <title>Admin | [var.title;noerr]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/line-awesome@1.3.0/dist/line-awesome/css/line-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="container is-fluid px-0">
+        <section id="menu">
+            <nav class="navbar is-primary is-fixed-top is-flex" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand pr-2">
+                    <a class="navbar-item p-0 pl-2 pr-2" href="[var._SERVER.APP_PREFIX;noerr]/admin/"
+                        data-impulsus="false">
+                        <strong class="is-hidden-mobile">Admin | [var.title;noerr]</strong>
+                    </a>
+                </div>
+
+                <div class="navbar-menu is-active is-shadowless is-flex is-flex-grow-1 is-align-items-stretch p-0">
+
+                </div>
+            </nav>
+        </section>
+        <section id="main" class="mt-5 pt-5">
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <nav class="panel ml-2 mt-4">
+                        <div class="panel-block">
+                            <aside class="menu is-flex-grow-1">
+                                [menu;block=begin]
+                                <p class="menu-label" data-type="[menu.type;if [val]=1; then 1; else '';magnet=p]">[menu.label]</p>
+                                <ul class="menu-list" data-type="[menu.type;if [val]=0; then 0; else '';magnet=ul]">
+                                    <li><a>[menu.label;ifempty=[menu.className]]</a></li>
+                                </ul>
+                                [menu;block=end]
+                            </aside>
+                        </div>
+                    </nav>
+                </div>
+                <div class="column">
+                    <div class="hero-body p-5">
+                        <p class="title">Admin | [var.title;noerr]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
