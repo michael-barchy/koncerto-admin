@@ -16,12 +16,14 @@ class MenuItem
      * @param ?string $label
      * @param ?string $icon
      * @param int $type
+     * @param ?string $url
      */
     public function __construct(
         $className = null,
         $label = null,
         $icon = null,
-        $type = null
+        $type = null,
+        $url = null
     ) {
         $shortName = null === $className ? null : explode('\\', $className);
 
@@ -29,10 +31,8 @@ class MenuItem
         $this->label = null === $label && null !== $shortName ? array_pop($shortName) : $label;
         $this->icon = $icon;
         $this->type = null === $type ? MenuItem::$MENU_ITEM : $type;
+        $this->url = $url;
     }
-
-    /** @var int */
-    public $type;
 
     /** @var class-string|string|null */
     public $className;
@@ -42,4 +42,26 @@ class MenuItem
 
     /** @var ?string */
     public $icon;
+
+    /** @var int */
+    public $type;
+
+    /** @var ?string */
+    public $url;
+
+    /**
+     * @return string
+     */
+    public function getLink()
+    {
+        if (null !== $this->className) {
+            $shortName = explode('\\', $this->className);
+            $shortName = array_pop($shortName);
+            $prefix = is_string($_SERVER['APP_PREFIX']) ? $_SERVER['APP_PREFIX'] : '';
+
+            return $prefix . '/admin/' . strtolower($shortName) . '/';
+        }
+
+        return null === $this->url ? 'javascript:;' : $this->url;
+    }
 }

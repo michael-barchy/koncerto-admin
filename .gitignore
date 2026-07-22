@@ -8,3 +8,5 @@ package-lock.json
 src/Controller/TestController.php
 src/Entity
 index.php
+db.sqlite
+

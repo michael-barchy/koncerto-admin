@@ -1,0 +1,12 @@
+<aside class="menu is-flex-grow-1">
+    [menu;block=begin]
+    <p class="menu-label" data-type="[menu.type;if [val]=1; then 1; else '';magnet=p]">[menu.label]</p>
+    <ul class="menu-list" data-type="[menu.type;if [val]=0; then 0; else '';magnet=ul]">
+        <li>
+            <a href="[menu.getLink()]" class="[current;if [val]=[menu.getLink()];then 'is-active';else '']">
+                [menu.label;ifempty=[menu.className]]
+            </a>
+        </li>
+    </ul>
+    [menu;block=end]
+</aside>
